@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: alexjbuck/my-jekyll-test
+  branch: main
+  auth_endpoint: https://github.com/login/oauth/authorize
+  client_id: ${{ secrets.CLIENT_ID }} 
+  client_secret: ${{ secrets.CLIENT_SECRET }}
+publish_mode: editorial_workflow
+media_folder: "assets/uploads"
+public_folder: "/uploads"
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
